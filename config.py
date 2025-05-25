@@ -89,6 +89,47 @@ def get_config():
                         choices=['PNG', 'JPG', 'JPEG'],
                         help='Format to save generated images')
     
+    # Semi-supervised Learning Parameters
+    parser.add_argument('--ssl_method', type=str, default='MT',
+                        choices=['MT', 'FixMatch', 'MCNet'],
+                        help='Semi-supervised learning method')
+    parser.add_argument('--ssl_model_type', type=str, default='IPS',
+                        choices=['IPS', 'EFCN', 'KNNLC'],
+                        help='Base model type for SSL')
+    parser.add_argument('--ssl_batch_size', type=int, default=8,
+                        help='Batch size for SSL training')
+    parser.add_argument('--ssl_epochs', type=int, default=100,
+                        help='Number of epochs for SSL training')
+    parser.add_argument('--ssl_learning_rate', type=float, default=1e-3,
+                        help='Learning rate for SSL training')
+    parser.add_argument('--ssl_weight_decay', type=float, default=1e-4,
+                        help='Weight decay for SSL training')
+    parser.add_argument('--unlabeled_path', type=str, 
+                        default='DataSets/guided_input.npy',
+                        help='Path to unlabeled data')
+    parser.add_argument('--ssl_eval_type', type=str, default='validation',
+                        help='Evaluation type for SSL')
+    
+    # Mean Teacher specific parameters
+    parser.add_argument('--mt_ema_alpha', type=float, default=0.999,
+                        help='EMA decay rate for Mean Teacher')
+    parser.add_argument('--mt_consistency_weight', type=float, default=0.1,
+                        help='Weight for consistency loss in Mean Teacher')
+    
+    # FixMatch specific parameters
+    parser.add_argument('--fixmatch_confidence', type=float, default=0.95,
+                        help='Confidence threshold for FixMatch pseudo-labeling')
+    parser.add_argument('--fixmatch_strong_threshold', type=float, default=0.8,
+                        help='Strong augmentation threshold for FixMatch')
+    
+    # MCNet specific parameters
+    parser.add_argument('--mcnet_dropout_rate', type=float, default=0.2,
+                        help='Dropout rate for MCNet')
+    parser.add_argument('--mcnet_n_decoders', type=int, default=3,
+                        help='Number of decoders for MCNet')
+    parser.add_argument('--mcnet_consistency_weight', type=float, default=0.1,
+                        help='Weight for consistency loss in MCNet')
+
     return parser.parse_args()
 
 if __name__ == '__main__':
@@ -161,3 +202,26 @@ if __name__ == '__main__':
     print(f"Output Directory: {config.output_dir}")
     print(f"Image Size: {config.img_size}")
     print(f"Save Format: {config.save_format}")
+
+    print("\n----- Semi-supervised Learning Parameters -----")
+    print(f"SSL Method: {config.ssl_method}")
+    print(f"SSL Model Type: {config.ssl_model_type}")
+    print(f"SSL Batch Size: {config.ssl_batch_size}")
+    print(f"SSL Epochs: {config.ssl_epochs}")
+    print(f"SSL Learning Rate: {config.ssl_learning_rate}")
+    print(f"SSL Weight Decay: {config.ssl_weight_decay}")
+    print(f"Unlabeled Path: {config.unlabeled_path}")
+    print(f"SSL Eval Type: {config.ssl_eval_type}")
+
+    print("\n----- Mean Teacher Parameters -----")
+    print(f"MT EMA Alpha: {config.mt_ema_alpha}")
+    print(f"MT Consistency Weight: {config.mt_consistency_weight}")
+
+    print("\n----- FixMatch Parameters -----")
+    print(f"FixMatch Confidence: {config.fixmatch_confidence}")
+    print(f"FixMatch Strong Threshold: {config.fixmatch_strong_threshold}")
+
+    print("\n----- MCNet Parameters -----")
+    print(f"MCNet Dropout Rate: {config.mcnet_dropout_rate}")
+    print(f"MCNet Number of Decoders: {config.mcnet_n_decoders}")
+    print(f"MCNet Consistency Weight: {config.mcnet_consistency_weight}")

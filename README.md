@@ -234,6 +234,55 @@ Contributions are welcome! Please fork the repository and submit a pull request 
                 ├── FMT3/
                 └── FMT4/
     ```
+6.  **Implement Label-free FMT Neural Network Training**
+
+    *   Train FMT reconstruction networks using semi-supervised learning with synthetic data. You can choose from different SSL methods (Mean Teacher, FixMatch, MCNet):
+
+    ```bash
+    python Label_Free_Training.py \
+      --ssl_method MT \
+      --ssl_model_type IPS \
+      --ssl_batch_size 16 \
+      --ssl_epochs 200 \
+      --mt_ema_alpha 0.999 \
+      --mt_consistency_weight 0.1 \
+      --ssl_learning_rate 1e-3 \
+      --unlabeled_path DataSets/guided_input.npy
+    ```
+
+    *   For FixMatch-based training:
+
+    ```bash
+    python Label_Free_Training.py \
+      --ssl_method FixMatch \
+      --ssl_model_type EFCN \
+      --ssl_batch_size 32 \
+      --fixmatch_confidence 0.95 \
+      --ssl_learning_rate 1e-3 \
+      --ssl_weight_decay 1e-4
+    ```
+
+    *   For MCNet-based training with multiple decoders:
+
+    ```bash
+    python Label_Free_Training.py \
+      --ssl_method MCNet \
+      --ssl_model_type KNNLC \
+      --mcnet_dropout_rate 0.2 \
+      --mcnet_n_decoders 3 \
+      --mcnet_consistency_weight 0.1 \
+      --ssl_batch_size 16 \
+      --ssl_epochs 300
+    ```
+
+    *   The trained models will be saved in the following structure:
+    ```
+    checkpoints/
+    └── ssl_models/
+        ├── IPS_MT.pth
+        ├── EFCN_FixMatch.pth
+        └── KNNLC_MCNet.pth
+    ```
 
 
 
