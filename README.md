@@ -57,7 +57,7 @@ Due to licensing and ethical constraints, we cannot publicly distribute the full
 ### 📁 Provided Resources
 | Resource | Description | Access |
 |----------|-------------|--------|
-| Sample Dataset | 200 representative training samples (10% of full dataset) | [Download Link](#) |
+| Sample Dataset | 200 representative training samples (10% of full dataset) | [https://drive.google.com/file/d/10fuYeyrBzjhHH2HCasi87I1ZqK29fQOo/view?usp=sharing](#) |
 | Pre-trained Models | Our best-performing DANG model weights | [Model Zoo](#) |
 | Synthetic Data Generator | Python scripts to create similar training data | `/scripts/data_generation` |
 
@@ -115,8 +115,7 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 1.  **Download sample data**
 
     ```bash
-    wget https://example.com/data/sample_dataset.zip
-    unzip sample_dataset.zip
+    wget https://drive.google.com/file/d/10fuYeyrBzjhHH2HCasi87I1ZqK29fQOo/view?usp=sharing
     ```
 
 2.  **Train encoder**
