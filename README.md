@@ -48,7 +48,7 @@ Due to licensing and ethical constraints, we cannot publicly distribute the full
 | Resource | Description | Access |
 |----------|-------------|--------|
 | Sample Dataset | 200 representative training samples (10% of full dataset) | [Download Link](#) |
-| Pre-trained Models | Our best-performing DADM-FMT model weights | [Model Zoo](#) |
+| Pre-trained Models | Our best-performing DANG model weights | [Model Zoo](#) |
 | Synthetic Data Generator | Python scripts to create similar training data | `/scripts/data_generation` |
 
 
