@@ -27,16 +27,26 @@ fluorescence samples, outperforming existing diffusion models in both fidelity a
 
 ## 📂 File Structure
 
-*   `.py`: The main script for .
-*   
-*   
+*   `config.py`: Configuration file containing all adjustable parameters for training and evaluation.
+*   `Label_Free_Training.py`: Main script for semi-supervised learning with Mean Teacher, FixMatch and MCNet methods.
+*   `sample_dataset.py`: Script for generating synthetic NIR-II fluorescence samples using trained diffusion model.
+*   `train_diffusion.py`: Script for training the NIR-II guided diffusion model.
+*   `train_encoder.py`: Script for training the latent embedder (VAE, VAEGAN, VQVAE, VQGAN).
+*   `evaluate_images.py`: Script for evaluating generated synthetic images quality.
+*   `evaluate_encoder.py`: Script for evaluating the latent embedder performance.
+
+### 📁 FMT/
+*   `FMT_Models/`: Implementation of various FMT reconstruction networks (IPS, EFCN, KNNLC).
+*   `FMT_dataset.py`: Dataset loading and processing utilities for FMT data.
+*   `SSL_Algorithms.py`: Implementation of semi-supervised learning algorithms.
+
+### 📁 NIR_II_Guided_Diffusion/
+*   `models/`: Core model architectures for diffusion and guidance.
+*   `utils/`: Utility functions for training and evaluation.
+*   `pipelines.py`: End-to-end pipelines for model training and inference.
+
 *   `requirements.txt`: Python dependencies.
-*  
-*   `README.md`: This file.
-*   `train_diffusion.py`: Script for training the diffusion model.
-*   `train_encoder.py`: Script for training the latent embedder.
-*   `evaluate_images.py`: Script for evaluating generated images.
-*   `evaluate_encoder.py`: Script for evaluating the latent embedder.
+*   `README.md`: Project documentation and instructions.
 
 
 ## Dataset Information

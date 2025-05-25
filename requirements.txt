@@ -1,17 +1,35 @@
-torch # pip install torch --extra-index-url https://download.pytorch.org/whl/cu113
-numpy 
-scikit-learn
-pytorch-lightning
-pytorch_msssim
-monai
-torchmetrics
-torch-fidelity
-torchio 
-pillow
-einops
-torchvision
-matplotlib
-pandas 
-lpips
+# Deep Learning Framework
+torch>=1.9.0
+torchvision>=0.10.0
 
-streamlit
+# Scientific Computing
+numpy>=1.19.2
+scipy>=1.7.0
+pandas>=1.3.0
+
+# Image Processing
+Pillow>=8.2.0
+scikit-image>=0.18.0
+
+# Machine Learning
+scikit-learn>=0.24.0
+
+# Utilities
+tqdm>=4.61.0
+matplotlib>=3.4.0
+tensorboard>=2.6.0
+
+# Model Evaluation
+lpips>=0.1.4
+pytorch-msssim>=0.2.1
+
+# Data Processing
+h5py>=3.3.0
+einops>=0.3.2
+
+# Configuration
+PyYAML>=5.4.1
+argparse>=1.4.0
+
+# Optional: CUDA support
+# cupy-cuda11x  # Uncomment and specify correct CUDA version
