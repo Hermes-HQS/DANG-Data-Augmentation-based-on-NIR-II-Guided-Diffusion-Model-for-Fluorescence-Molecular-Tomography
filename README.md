@@ -58,7 +58,6 @@ Due to licensing and ethical constraints, we cannot publicly distribute the full
 | Resource | Description | Access |
 |----------|-------------|--------|
 | Sample Dataset | 20 representative training samples | [https://drive.google.com/file/d/10fuYeyrBzjhHH2HCasi87I1ZqK29fQOo/view?usp=sharing](#) |
-| Pre-trained Models | Our best-performing DANG model weights | [Model Zoo](#) |
 | Synthetic Data Generator | Python scripts to create similar training data | `/scripts/data_generation` |
 
 
