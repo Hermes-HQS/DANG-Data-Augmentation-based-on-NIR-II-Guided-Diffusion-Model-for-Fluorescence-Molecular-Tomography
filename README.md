@@ -293,5 +293,52 @@ Contributions are welcome! Please fork the repository and submit a pull request 
         └── KNNLC_MCNet.pth
     ```
 
+7. **Evaluate the performance of Label-free Training**
+
+    *   Evaluate trained FMT reconstruction models using multiple metrics (Dice, BCE, CNR):
+
+    ```bash
+    python Label_Free_Eval.py \
+      --eval_batch_size 16 \
+      --eval_threshold 0.5 \
+      --eval_metrics dice bce cnr \
+      --eval_save_dir results/evaluation \
+      --eval_results_file evaluation_results.txt
+    ```
+
+    *   For detailed evaluation of Mean Teacher model:
+
+    ```bash
+    python Label_Free_Eval.py \
+      --ssl_method MT \
+      --ssl_model_type IPS \
+      --eval_threshold 0.6 \
+      --eval_metrics dice bce \
+      --eval_visualize True \
+      --eval_save_dir results/evaluation/MT
+    ```
+
+    *   For quick evaluation with specific metrics:
+
+    ```bash
+    python Label_Free_Eval.py \
+      --eval_batch_size 32 \
+      --eval_metrics dice cnr \
+      --brain_coords_path Tecplot_Data/BrainNodes.npy \
+      --eval_visualize False
+    ```
+
+    *   The evaluation results will be saved in the following structure:
+    ```
+    results/
+    └── evaluation/
+        ├── MT/
+        │   └── evaluation_results.txt
+        ├── FixMatch/
+        │   └── evaluation_results.txt
+        └── MCNet/
+            └── evaluation_results.txt
+    ```
+
 
 

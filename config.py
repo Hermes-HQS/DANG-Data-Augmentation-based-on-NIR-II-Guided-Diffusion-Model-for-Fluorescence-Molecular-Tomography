@@ -130,6 +130,30 @@ def get_config():
     parser.add_argument('--mcnet_consistency_weight', type=float, default=0.1,
                         help='Weight for consistency loss in MCNet')
 
+    # Evaluation Parameters
+    parser.add_argument('--eval_batch_size', type=int, default=16,
+                        help='Batch size for evaluation')
+    parser.add_argument('--eval_threshold', type=float, default=0.5,
+                        help='Threshold for binary mask in evaluation metrics')
+    parser.add_argument('--eval_metrics', type=list, 
+                        default=['dice', 'bce', 'cnr'],
+                        help='List of evaluation metrics to compute')
+    parser.add_argument('--eval_save_dir', type=str,
+                        default='results/evaluation',
+                        help='Directory to save evaluation results')
+    parser.add_argument('--brain_coords_path', type=str,
+                        default='Tecplot_Data/BrainNodes.npy',
+                        help='Path to brain coordinates file for BCE calculation')
+    parser.add_argument('--eval_results_file', type=str,
+                        default='evaluation_results.txt',
+                        help='Name of file to save evaluation results')
+    parser.add_argument('--eval_visualize', type=bool, default=False,
+                        help='Whether to visualize evaluation results')
+    parser.add_argument('--cnr_top_n', type=int, default=10,
+                        help='Number of top pixels to use for CNR calculation')
+    parser.add_argument('--cnr_bottom_n', type=int, default=50,
+                        help='Number of bottom pixels to use for CNR calculation')
+
     return parser.parse_args()
 
 if __name__ == '__main__':
@@ -225,3 +249,14 @@ if __name__ == '__main__':
     print(f"MCNet Dropout Rate: {config.mcnet_dropout_rate}")
     print(f"MCNet Number of Decoders: {config.mcnet_n_decoders}")
     print(f"MCNet Consistency Weight: {config.mcnet_consistency_weight}")
+
+    print("\n----- Evaluation Parameters -----")
+    print(f"Eval Batch Size: {config.eval_batch_size}")
+    print(f"Eval Threshold: {config.eval_threshold}")
+    print(f"Eval Metrics: {config.eval_metrics}")
+    print(f"Eval Save Dir: {config.eval_save_dir}")
+    print(f"Brain Coords Path: {config.brain_coords_path}")
+    print(f"Eval Results File: {config.eval_results_file}")
+    print(f"Eval Visualize: {config.eval_visualize}")
+    print(f"CNR Top N: {config.cnr_top_n}")
+    print(f"CNR Bottom N: {config.cnr_bottom_n}")
